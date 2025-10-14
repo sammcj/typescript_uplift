@@ -1,0 +1,84 @@
+{
+  "mcpServers": {
+    "dev-tools": {
+      "timeout": 60,
+      "type": "stdio",
+      "command": "/Users/samm/git/sammcj/mcp-devtools/bin/mcp-devtools"
+    },
+    "aws-documentation": {
+      "autoApprove": [
+        "read_documentation",
+        "search_documentation",
+        "recommend"
+      ],
+      "disabled": true,
+      "timeout": 60,
+      "command": "uvx",
+      "args": [
+        "awslabs.aws-documentation-mcp-server@latest"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_DOCUMENTATION_PARTITION": "aws"
+      },
+      "type": "stdio"
+    },
+    "shadcn-ui": {
+      "command": "npx",
+      "args": [
+        "@jpisnice/shadcn-ui-mcp-server"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "readOnlyPublicReposTokenHere"
+      },
+      "autoApprove": [
+        "get_component",
+        "get_component_demo",
+        "list_components",
+        "get_component_metadata",
+        "get_directory_structure",
+        "get_block",
+        "list_blocks"
+      ]
+    },
+    "aws-terraform": {
+      "command": "uvx",
+      "args": [
+        "awslabs.terraform-mcp-server@latest"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": true,
+      "autoApprove": []
+    },
+    "context7-package-documentation": {
+      "autoApprove": [
+        "resolve-library-id",
+        "get-library-docs"
+      ],
+      "timeout": 60,
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "env": {
+        "DEFAULT_MINIMUM_TOKENS": "12000"
+      }
+    },
+    "fetch-url": {
+      "autoApprove": [
+        "fetch"
+      ],
+      "disabled": false,
+      "timeout": 300,
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
+    }
+  }
+}

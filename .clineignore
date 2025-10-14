@@ -1,0 +1,9 @@
+docs/example_mcp_config.json
+docs/example_dev_plan.md
+docs/example_prompts.md
+docs/example_TYPESCRIPT_UPLIFT.md
+data/
+**/pem
+**/node_modules
+
+README_FOR_DEMOS.md
