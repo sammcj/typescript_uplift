@@ -28,6 +28,8 @@ Demo:
 9. Answer any relevant questions, then prompt the agent to "`Complete the first phase of tasks in the development plan.`"
 10. Talk through the agent making changes and any tool usage that occurs.
 
+Note: If any any point you get stuck, have unreliable internet or are short on time, you can always talk through an existing development plan created earlier which exists in [./docs/examples/example_TYPESCRIPT_UPLIFT.md](./docs/examples/example_TYPESCRIPT_UPLIFT.md)
+
 ### Running the application
 
 This is often not required to get the messaging across during the demo, but some times it's helpful if you want to look at the application and ask the audience to suggest more activites for the agent to perform (add features etc...).
