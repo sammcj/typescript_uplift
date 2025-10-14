@@ -20,12 +20,18 @@ Demo:
 1. Talk to the two images below.
 2. Talk to the setup -> plan -> act -> iterate workflow.
 3. Tell the audience that this repo is a deliberately poor codebase that you'll show the agent uplifting after creating a dev plan.
-4. Prompt the agent with details on what you want to achieve (e.g. "`The goal for today is to plan an uplift of this codebase. We want to ensure the code follows typescript best practices, upgrade all packages to the latest stable versions, fix image 404s, then ensure the application passes linting, builds and runs without issue. Please review the current codebase with this in mind. Think deeply about the current state and the requirements I've set out and give me a concise summary of your recommended changes. Do not make any code changes yet.`"
-5. Ensure the agent understands and then prompt it to "`Create a new markdown file called DEVELOPMENT_PLAN.md with all the relevant context and requirements we've discussed, then add a **checklist of development tasks to complete the work in phases**. Then stop for me to review.`"
+4. Prompt the agent with details on what you want to achieve. For example:
+    - "`The goal for today is to plan an uplift of this codebase. We want to ensure the code follows typescript best practices, upgrade all packages to the latest stable versions, fix image 404s, then ensure the application passes linting, builds and runs without issue.
+    Please review the current codebase with this in mind.
+    Think deeply about the current state and the requirements I've set out and give me a concise summary of your recommended changes. Do not make any code changes yet.`"
+5. Ensure the agent understands and then prompt it to create the plan, for example:
+     - "`Create a new markdown file called DEVELOPMENT_PLAN.md with all the relevant context and requirements we've discussed, then add a **checklist of development tasks to complete the work in phases**. Then stop for me to review.`"
 6. Review the plan with the auidence, make any changes (usually I add "STOP and wait for human review" at the end of each phase).
 7. Start a fresh session with the agent
-8. Prompt the agent to "`Read the DEVELOPMENT_PLAN.md and confirm it understands the goal and the tasks to get there. Ask any clarifying questions if anything is unclear.`"
-9. Answer any relevant questions, then prompt the agent to "`Complete the first phase of tasks in the development plan.`"
+8. Prompt the agent to
+     - "`Read the DEVELOPMENT_PLAN.md and confirm it understands the goal and the tasks to get there. Ask any clarifying questions if anything is unclear.`"
+9. Answer any relevant questions, then prompt the agent to undertake the work from the plan, for example:
+    - "`Complete the first phase of tasks in the development plan.`"
 10. Talk through the agent making changes and any tool usage that occurs.
 
 Note: If any any point you get stuck, have unreliable internet or are short on time, you can always talk through an existing development plan created earlier which exists in [./docs/examples/example_TYPESCRIPT_UPLIFT.md](./docs/examples/example_TYPESCRIPT_UPLIFT.md)
