@@ -1,0 +1,15 @@
+{
+  "inventoryForm": {
+    "title": "Inventory Lookup",
+    "productIdLabel": "Product ID (e.g., SKU-123):",
+    "locationLabel": "Location:",
+    "lookupButton": "Check Stock",
+    "output": {
+      "errorInputMissing": "Error: Please enter a Product ID.",
+      "errorNotFound": "Error: Product ID not found.",
+      "successPrefix": "Product ",
+      "successSuffixStock": " units in stock.",
+      "successSuffixName": " ("
+    }
+  }
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "id": "SKU-123",
+    "name": "Widget A",
+    "stock": 15,
+    "warehouseStock": [
+      { "warehouse": "Melbourne Central", "stock": 10 },
+      { "warehouse": "Sydney Depot", "stock": 5 },
+      { "warehouse": "Brisbane Hub", "stock": 0 }
+    ]
+  },
+  {
+    "id": "SKU-456",
+    "name": "Gadget B",
+    "stock": 0,
+    "warehouseStock": [
+      { "warehouse": "Melbourne Central", "stock": 0 },
+      { "warehouse": "Sydney Depot", "stock": 0 }
+    ]
+  },
+  {
+    "id": "SKU-789",
+    "name": "Thingamajig C",
+    "stock": 122,
+    "warehouseStock": [
+      { "warehouse": "Melbourne Central", "stock": 50 },
+      { "warehouse": "Sydney Depot", "stock": 71 },
+      { "warehouse": "Perth Store", "stock": 1 }
+    ]
+  }
+]

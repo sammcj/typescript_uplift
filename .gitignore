@@ -1,0 +1,10 @@
+**/node_modules
+**/dist
+**/build
+**/coverage
+**/*.tmp
+**/*.log
+**/.vscode
+**/.DS_Store
+.serena/cache
+.serena/memories

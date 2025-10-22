@@ -1,0 +1,38 @@
+{
+  "name": "typescript_uplift",
+  "version": "1.0.0",
+  "description": "A deliberately suboptimal TypeScript app for demonstration purposes",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc && cp src/index.html dist/ && cp src/modern-ui.css dist/ && cp not-backed.png dist/ && cp -r src/i18n dist/ && mkdir -p dist/data && cp src/data/inventory.json dist/data/ && cp -r inventory dist/",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint -c .eslintrc.json src/**/*.ts --no-fix",
+    "dev": "tsc && cp src/index.html dist/ && cp src/modern-ui.css dist/ && cp not-backed.png dist/ && cp -r src/i18n dist/ && mkdir -p dist/data && cp src/data/inventory.json dist/data/ && cp -r inventory dist/ && concurrently \"tsc --watch\" \"browser-sync start --no-open --server dist --files 'dist/**/*'\"",
+    "reset": "git reset --hard HEAD && rm -rf DEVELOPMENT_PLAN.md DEV_PLAN.md"
+  },
+  "keywords": [
+    "typescript",
+    "demo"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@testing-library/jest-dom": "6.6.0",
+    "@types/jest": "29.5.14",
+    "@types/node": "22.14.1",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^8.57.0",
+    "jest": "29.7.0",
+    "ts-jest": "29.3.0",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "browser-sync": "3.0.4",
+    "concurrently": "9.1.2",
+    "http-server": "14.1.1",
+    "jest-environment-jsdom": "29.7.0"
+  }
+}
