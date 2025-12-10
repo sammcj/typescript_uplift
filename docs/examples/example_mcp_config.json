@@ -3,7 +3,15 @@
     "dev-tools": {
       "timeout": 60,
       "type": "stdio",
-      "command": "/Users/samm/git/sammcj/mcp-devtools/bin/mcp-devtools"
+      "command": "/Users/samm/git/sammcj/mcp-devtools/bin/mcp-devtools",
+      "env": {
+        "NOTE": "These Brave and Github tokens are short lived, rotating, read-only token with only basic, public information access",
+        "ENABLE_ADDITIONAL_TOOLS": "security,sequential_thinking",
+        "DISABLED_FUNCTIONS": "",
+        "BRAVE_API_KEY": "redacted",
+        "CONTEXT7_API_KEY": "redacted",
+        "GITHUB_TOKEN": "redacted"
+      }
     },
     "aws-documentation": {
       "autoApprove": [
