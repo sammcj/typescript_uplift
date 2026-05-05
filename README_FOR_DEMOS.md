@@ -12,7 +12,7 @@ Requirements:
 
 Before starting:
 
-- Run `npm install`
+- Run `pnpm install`
 - Confirm the MCP servers in [`.mcp.json`](.mcp.json) load (`/mcp` inside Claude Code)
 
 Demo flow:
@@ -32,8 +32,8 @@ If you're stuck, short on time, or your internet is flaky, you can fall back to 
 
 Often not needed for the messaging, but useful if you want to show the app and ask the audience for feature ideas.
 
-1. `npm install`
-2. `npm run dev`
+1. `pnpm install`
+2. `pnpm run dev`
 3. Open http://localhost:3000
 
 ---

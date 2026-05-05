@@ -7,33 +7,33 @@ There are quite a few problems with the code as it currently stands - it could u
 ## Setup
 
 ```
-npm install
+pnpm install
 ```
 
 ## Running the App
 
 ```
-npm run dev
+pnpm run dev
 ```
 
-This will build the app, copy necessary files, and start a local server. You can then open the provided URL (usually http://localhost:8080) in your browser.
+This will build the app, copy necessary files, and start a local server. Open http://localhost:3000 in your browser.
 
 ## Testing
 
 ```
-npm test
+pnpm test
 ```
 
 ## Test Coverage
 
 ```
-npm run test:coverage
+pnpm run test:coverage
 ```
 
 ## Linting
 
 ```
-npm run lint
+pnpm run lint
 ```
 
 ## Notes

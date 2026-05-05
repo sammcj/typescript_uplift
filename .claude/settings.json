@@ -5,10 +5,11 @@
     "defaultMode": "acceptEdits",
 
     "allow": [
-      "Bash(npm run lint)",
-      "Bash(npm run build)",
-      "Bash(npm run dev)",
-      "Bash(npm test:*)",
+      "Bash(pnpm run lint)",
+      "Bash(pnpm run build)",
+      "Bash(pnpm run dev)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm install)",
       "Read(./**)",
       "Edit(./src/**)",
       "mcp__context7",
