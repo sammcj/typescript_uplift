@@ -1,8 +1,8 @@
 {
   "permissions": {
     "deny": [
-      "Read(README_FOR_DEMOS.md)",
-      "Read(docs/examples)"
+      "Read(DISABLED_README_FOR_DEMOS.md)",
+      "Read(DISABLED_docs/examples)"
     ]
   }
 }
