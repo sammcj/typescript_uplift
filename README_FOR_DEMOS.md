@@ -26,7 +26,7 @@ Demo flow:
 7. Prompt the agent to read the plan and start work - see [`docs/examples/prompts/simple/4-act.md`](docs/examples/prompts/simple/4-act.md)
 8. Talk through the changes and tool usage as it goes.
 
-If you're stuck, short on time, or your internet is flaky, you can fall back to the prepared plan in [`docs/examples/example_TYPESCRIPT_UPLIFT.md`](docs/examples/example_TYPESCRIPT_UPLIFT.md).
+If you're stuck, short on time, or your internet is flaky, you can fall back to the prepared plan in [`docs/examples/example_DEVELOPMENT_PLAN.md`](docs/examples/example_DEVELOPMENT_PLAN.md).
 
 ### Running the application
 
@@ -42,7 +42,7 @@ Often not needed for the messaging, but useful if you want to show the app and a
 
 ![](./docs/1-why-agentic-coding-matters.jpg)
 
-![](./docs/2-agentic-coding-flow.jpg)
+![](./docs/2-setup-plan-act-iterate.jpg)
 
 ## Example Files
 
@@ -53,7 +53,7 @@ Often not needed for the messaging, but useful if you want to show the app and a
 
 "Here's one I prepared earlier" plans:
 
-- [`docs/examples/example_TYPESCRIPT_UPLIFT.md`](docs/examples/example_TYPESCRIPT_UPLIFT.md)
+- [`docs/examples/example_DEVELOPMENT_PLAN.md`](docs/examples/example_DEVELOPMENT_PLAN.md)
 - [`docs/examples/example_DEPENDENCY_UPGRADE_PLAN.md`](docs/examples/example_DEPENDENCY_UPGRADE_PLAN.md)
 
 ### Example Prompts
