@@ -61,7 +61,7 @@ This is a TypeScript inventory app used to demo for agentic coding workflows.
 - Tests run quickly (seconds), no external service dependencies
 - Tests should have assertions and must verify behaviour
 - Build time: optimise if over 1 minute
-- Coverage: 80% minimum for new code
+- Coverage: aim for 80% minimum for _new_ code
 
 ## Security
 
