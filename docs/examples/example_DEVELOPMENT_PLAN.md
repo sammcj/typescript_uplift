@@ -1,4 +1,4 @@
-# TypeScript Application Modernisation & Security Uplift
+# Development Plan: TypeScript Application Modernisation & Security Uplift
 
 <!-- Example development plan - "here's one I prepared earlier" for the demo -->
 <!-- Demo scope: Phase 1 is the on-stage work. Phase 2 is included for realism / "what comes next" context, not required during the demo. -->
@@ -91,7 +91,7 @@ Keep changes focused. The following are deliberately not in scope:
 
 ---
 
-## Development Plan
+## Development Checklist
 
 ### Phase 1: Critical Security & Async Modernisation
 
