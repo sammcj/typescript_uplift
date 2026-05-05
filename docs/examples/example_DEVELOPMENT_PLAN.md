@@ -41,7 +41,7 @@ src/
     └── en-US.json      # Translation strings
 ```
 
-### Commands
+### Operational Commands
 
 ```bash
 pnpm run lint

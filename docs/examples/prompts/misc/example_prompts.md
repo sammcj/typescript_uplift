@@ -71,7 +71,7 @@ For example we probably want tests covering scenarios where:
 - The input field is empty.
 - Mock the global `inventoryData` and `translations` variables as needed for these tests.
 
-Then we'd need to ensure `npm test` passes after adding the new tests.
+Then we'd need to ensure `pnpm test` passes after adding the new tests.
 Can you start by creating a new markdown document in `docs/unit-tests.md` that outlines the tests you will add and the expected outcomes?
 
 *Follow up prompt:*
