@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+
+  "permissions": {
+    "defaultMode": "acceptEdits",
+
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(npm test:*)",
+      "Read(./**)",
+      "Edit(./src/**)",
+      "mcp__context7",
+      "mcp__playwright"
+    ],
+
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Edit(./.claude/**)",
+      "Edit(./package.json)"
+    ],
+
+    "deny": [
+      "Read(./.env)",
+      "Read(./**/*.pem)",
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)"
+    ]
+  },
+
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "filesystem": {
+      "denyRead": ["**/.env", "**/*.pem"]
+    },
+    "network": {
+      "allowedDomains": [
+        "*.npmjs.org",
+        "*.npmjs.com",
+        "*.github.com",
+        "*.githubusercontent.com",
+        "registry.yarnpkg.com"
+      ],
+      "allowLocalBinding": true
+    }
+  },
+
+  "includeCoAuthoredBy": false
+}

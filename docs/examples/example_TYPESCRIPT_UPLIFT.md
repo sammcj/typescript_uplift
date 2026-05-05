@@ -1,101 +1,112 @@
-# TypeScript Uplift - Development Plan
+# TypeScript Application Modernisation & Security Uplift
 
-## Project Context
+<!-- Example development plan - "here's one I prepared earlier" for the demo -->
 
-This project is an inventory management application built with TypeScript, serving as a demonstration of common code quality issues. The codebase currently exhibits multiple anti-patterns and uses deprecated APIs that need modernization.
+## Overview
 
-## Current State Assessment
+This plan addresses critical security vulnerabilities and outdated code patterns in a TypeScript inventory management application. The application currently uses deprecated APIs, lacks type safety, and has XSS vulnerabilities. This uplift will bring the codebase onto current best practices for safety and maintainability whilst keeping all existing functionality.
 
-### Technical Debt
-- Synchronous XMLHttpRequest (deprecated, will break in future browsers)
-- TypeScript strict mode disabled, heavy use of `any` types
-- Zero meaningful test coverage
-- Global state management without proper patterns
-- Excessive debug logging in production code
-- Outdated dependencies (TypeScript 4.9.5, ESLint 8.x, Jest 29.x)
+## Current State
 
-### Architecture
-- Single-file application (~300 lines) with no modularization
-- Direct DOM manipulation without framework
-- Manual file copying in build process
-- Testing dependencies incorrectly placed in `dependencies` instead of `devDependencies`
+**Problems Identified:**
 
-## Development Phases
+- Synchronous XMLHttpRequest blocking the main thread (critical security/UX issue)
+- No input sanitisation creating XSS vulnerabilities
+- TypeScript 4.9.5 with strict mode disabled
+- ES5 target (from 2009) instead of modern JavaScript
+- All types defined as `any` - no type safety
+- Debug console.log statements in production code
+- Global state management with no encapsulation
+- No structured error handling around async work
 
-### Phase 1: Critical Fixes & Foundation
+**Technical Context:**
 
-**Objective:** Address browser-breaking issues and establish proper TypeScript foundation
+- TypeScript 4.9.5 targeting ES5 with CommonJS modules
+- Browser-based single-page application
+- Synchronous data loading from JSON files
 
-- [ ] Replace synchronous XMLHttpRequest with async fetch API in `loadTranslations()` and `loadInventoryData()`
-- [ ] Enable TypeScript strict mode in tsconfig.json (`strict: true`, `noImplicitAny: true`)
-- [ ] Update TypeScript compilation target from ES5 to ES2020+
-- [ ] Remove all `any` types and add proper type definitions for inventory items, warehouse stock, and translation objects
-- [ ] Move testing packages from `dependencies` to `devDependencies` in package.json
-- [ ] Perform critical self-review of Phase 1 changes, fixing any issues found
-- [ ] **STOP and wait for human review**
+**Project Structure:**
 
-### Phase 2: State Management & Code Organization
+```
+src/
+├── app.ts              # Main application logic (300+ lines, all global)
+├── index.html          # UI markup with inline styles
+├── modern-ui.css       # ShadCN-inspired styling
+├── __tests__/
+│   └── app.test.ts     # Single trivial test
+├── data/
+│   └── inventory.json  # Product inventory data
+└── i18n/
+    └── en-US.json      # Translation strings
+```
 
-**Objective:** Eliminate global state and modularize codebase
+### Commands
 
-- [ ] Create proper state management structure (avoid globals, use encapsulation)
-- [ ] Extract inventory logic into separate module with clear interfaces
-- [ ] Extract translation/i18n logic into separate module
-- [ ] Extract UI rendering logic into separate module
-- [ ] Implement proper initialization flow replacing `window.onload` pattern
-- [ ] Perform critical self-review of Phase 2 changes, fixing any issues found
-- [ ] **STOP and wait for human review**
+```bash
+npm run lint
+npm test
+npm run build
+```
 
-### Phase 3: Error Handling & Code Quality
+Development server - runs in background, accessible via localhost:3000, auto-reloads on changes:
 
-**Objective:** Implement robust error handling and remove technical debt
+```bash
+npm run dev
+```
 
-- [ ] Add comprehensive error handling for fetch operations with user-friendly messages
-- [ ] Remove all debug `console.log` statements (15+ occurrences)
-- [ ] Implement proper error boundary for image loading failures
-- [ ] Add input validation with clear error feedback
-- [ ] Optimize build script to use proper tooling instead of manual file copying
-- [ ] Perform critical self-review of Phase 3 changes, fixing any issues found
-- [ ] **STOP and wait for human review**
+## Definition of Done
 
-### Phase 4: Dependency Updates
+1. TypeScript 5.x installed with strict mode enabled (`noImplicitAny`, `strictNullChecks` on); `tsconfig` targets ES2020+
+2. All TypeScript compiles with no `any` types, with explicit return and parameter types on every function
+3. No synchronous operations block the main thread; all data loading uses async `fetch`
+4. Product lookup is not vulnerable to XSS via script tags or HTML entities; user-displayed data uses `textContent`
+5. No debug `console.log` statements remain in production code
+6. Async failures (network errors, missing products) surface as user-friendly messages, not raw stack traces
+7. Global state is encapsulated and data loading lives in a separate module from DOM rendering
+8. Build completes with zero errors or warnings; lint passes
+9. All existing functionality verified in the browser: product lookup, warehouse stock display, language switching
 
-**Objective:** Update all outdated packages to latest stable versions
+---
 
-- [ ] Update TypeScript to 5.x
-- [ ] Update ESLint to 9.x and @typescript-eslint plugins accordingly
-- [ ] Update Jest ecosystem to 30.x (jest, jest-environment-jsdom, @types/jest, @testing-library/jest-dom)
-- [ ] Update ts-jest to 29.4.x
-- [ ] Update concurrently to 9.2.x
-- [ ] Run full test suite after each update to catch breaking changes
-- [ ] Perform critical self-review of Phase 4 changes, fixing any issues found
-- [ ] **STOP and wait for human review**
+## Development Workflow
 
-### Phase 5: Testing Infrastructure
+1. Operate on tasks from the plan.
+2. Before marking a task as complete in the plan:
+   1. Ensure linting and tests pass without any warnings or errors (related or unrelated to your changes).
+   2. Perform a critical self-review of your changes correcting any issues found.
+   3. If you cannot verify your work, prompt the user to perform manual verification before proceeding.
+3. Mark the task as complete.
+4. Move to the next task.
 
-**Objective:** Establish comprehensive test coverage
+---
 
-- [ ] Remove trivial tautological test and create meaningful test structure
-- [ ] Add unit tests for inventory lookup logic (found/not found cases)
-- [ ] Add unit tests for translation loading and application
-- [ ] Add unit tests for warehouse stock display logic
-- [ ] Add integration tests for full user workflows (select item, lookup, display)
-- [ ] Achieve minimum 80% code coverage
-- [ ] Perform critical self-review of Phase 5 changes, fixing any issues found
-- [ ] **STOP and wait for human review**
+## Development Plan
 
-## Success Criteria
+### Phase 1: Critical Security & Async Modernisation
 
-Each phase completion should meet these criteria:
-- All TypeScript compilation warnings resolved
-- ESLint passes without errors
-- All tests passing
-- Application runs without console errors
-- No degradation in functionality
+**Goal:** Remove the blocking synchronous XHR, close the XSS hole, and bring TypeScript onto a modern target so subsequent work has solid ground to stand on.
 
-## Notes
+- [ ] Upgrade TypeScript to latest 5.x and update `tsconfig.json` (target ES2020, enable `strict`)
+- [ ] Replace synchronous `XMLHttpRequest` with async `fetch`:
+  - [ ] Convert `loadTranslations()` to async
+  - [ ] Convert `loadInventoryData()` to async
+  - [ ] Update `window.onload` to handle async initialisation and surface a loading state
+- [ ] Sanitise product lookup input and replace `innerHTML` with `textContent` wherever user data is displayed
+- [ ] Remove all debug `console.log` statements from production code
+- [ ] Run lint and build, then exercise the app in the browser to confirm product lookup, warehouse stock display, and language switching all still work
+- [ ] Perform a critical self-review of your changes and fix any issues found
+- [ ] STOP and wait for human review
 
-- Each phase builds on the previous, do not skip ahead
-- Breaking changes should be documented as they occur
-- Maintain backward compatibility with existing data files (inventory.json, translations)
-- The application should remain functional after each phase
+### Phase 2: Type Safety & Architecture
+
+**Goal:** Replace `any` with proper interfaces, encapsulate global state, and add structured error handling so the app fails gracefully.
+
+- [ ] Define interfaces for `InventoryItem`, `WarehouseStock`, `Translations`, and key DOM element references
+- [ ] Replace all `any` types with the new interfaces and add explicit return and parameter types to every function
+- [ ] Enable `noImplicitAny` and `strictNullChecks` and resolve all resulting errors
+- [ ] Extract global state (`currentLanguage`, `translations`, `inventoryData`) into a small `AppState` module
+- [ ] Split data loading into a data service module and DOM rendering into a view module
+- [ ] Wrap async work in try/catch and surface user-friendly error messages for network failures and missing products
+- [ ] Verify the build, lint, and the existing test suite all pass
+- [ ] Perform a critical self-review of your changes and fix any issues found
+- [ ] STOP and wait for human review
