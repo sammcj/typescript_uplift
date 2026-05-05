@@ -53,7 +53,22 @@ List specific, concrete requirements:
 - What dependencies or prerequisites exist?
 - Are there any resource constraints? (No external teams, specific libraries to use/avoid)
 
-**Make requirements specific and testable** - avoid vague statements.
+Make requirements specific and testable - avoid vague statements.
+
+### 2a. Out of Scope
+
+Capture anything you and the user agreed not to do. Keep this short and concrete. The point is to prevent scope creep during execution - if a tempting side-quest is listed here, the executing agent will know to leave it alone.
+
+If nothing is explicitly out of scope, you can omit this section.
+
+### 2b. Development Workflow
+
+A short note on how the executing agent should operate task-to-task. Typical content:
+
+- Operate on tasks from the plan in order
+- Before marking a task complete: lint and tests must pass with no warnings or errors
+- Perform a critical self-review of changes before marking the task complete
+- If verification isn't possible (e.g. no test coverage for the change), prompt the user for manual verification
 
 ### 3. Unknowns & Assumptions (only if applicable)
 
@@ -97,14 +112,13 @@ Break the work into **2-6 logical phases** that:
 - Contain a checklist of tasks (and subtasks if required)
 - Follow a clear progression (lint -> build → test → critical self review & fixes -> human review and approval)
 
-**For each phase:**
+For each phase:
 - Give it a clear, concise and descriptive name
 - List 3-8 specific tasks (if more, break into sub-phases)
-- Describe **outcomes**, not specific code changes
-- Include verification/testing steps
+- Describe outcomes, not specific code changes
+- Group code work first, then verification at the end of the phase (avoids the agent stopping to lint/test after every small change)
 - Add a "Perform a critical self-review of your changes and fix any issues found" task
-- Add a "Mark any tasks you've completed to 100% off in the plan" task
-- **End each phase with "STOP and wait for human review"** (unless user explicitly requested otherwise)
+- End each phase with `STOP and wait for human review` (unless the user explicitly requested otherwise)
 
 ## The Goldilocks Principle
 
@@ -237,6 +251,22 @@ Use this structure:
 
 [Add more as needed but keep it concise and within the scope of what the user has requested]
 
+## Out of Scope
+
+- [Thing deliberately not being done 1]
+- [Thing deliberately not being done 2]
+
+[Omit this section if nothing is explicitly out of scope]
+
+## Development Workflow
+
+1. Operate on tasks from the plan in order.
+2. Before marking a task as complete:
+   1. Lint and tests must pass without warnings or errors.
+   2. Perform a critical self-review and fix any issues found.
+   3. If you can't verify the change, prompt the user for manual verification.
+3. Mark the task as complete and move to the next one.
+
 ## Unknowns & Assumptions (if applicable)
 
 **Unknowns:**
@@ -318,17 +348,20 @@ Run through this checklist:
 - [ ] Plan has clear overview explaining what and why
 - [ ] Current state/problems clearly documented
 - [ ] Requirements are specific and testable
+- [ ] Out of Scope section captures anything deliberately not being done
+- [ ] Development Workflow section sets the per-task verification expectation
 - [ ] Unknowns and assumptions documented (if applicable)
 - [ ] Success criteria are measurable (no vague terms like "better", "improved", "robust")
 - [ ] 2-6 logical phases with clear progression
-- [ ] Each phase ends with "STOP and wait for human review"
+- [ ] Each phase ends with `STOP and wait for human review`
 - [ ] Tasks describe outcomes, not code implementations
+- [ ] Code work is grouped before verification within each phase
 - [ ] Testing integrated throughout, not just at the end
 - [ ] No red flags (reasonable scope, appropriate tech, solving real problems)
 - [ ] Length is appropriate (120-400 lines typical)
 - [ ] Final phase includes comprehensive review
 - [ ] Working Notes section included
-- [ ] British / Australian spelling used throughout (NO AMERICAN SPELLING ALLOWED!)
+- [ ] British / Australian spelling used throughout
 - [ ] Plan is specific enough to guide work but flexible enough to allow good implementation decisions
 
 ## Critical Self-Review
@@ -352,11 +385,10 @@ Present the plan to the user and say the following (filling in the brackets):
 - [Brief 1-line summary of what it achieves]
 - Is organised into [N] phases with review checkpoints
 - Includes a Working Notes section where the executing agent can track complex issues if needed
-- Should take [rough estimate if you can provide one] to complete
 
-**Next steps:**
-1. Please review the plan and either let me know if anything needs adjusting or make any changes you'd like
-2. When ready, **start a fresh session** with your AI coding agent and provide them this plan to begin Phase 1
+Next steps:
+1. Please review the plan and let me know if anything needs adjusting.
+2. When ready, start a fresh session with your AI coding agent and provide them this plan to begin Phase 1.
 
 Would you like me to make any changes to the plan?"
 
