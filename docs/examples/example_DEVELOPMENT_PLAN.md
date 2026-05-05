@@ -99,14 +99,11 @@ Keep changes focused. The following are deliberately not in scope:
 
 Do all the code work below before pausing to verify. Save lint, build and browser checks for the end of the phase.
 
-- [ ] Upgrade TypeScript to latest 5.x and update `tsconfig.json` (target ES2020, enable `strict`)
-- [ ] Replace synchronous `XMLHttpRequest` with async `fetch`:
-  - [ ] Convert `loadTranslations()` to async
-  - [ ] Convert `loadInventoryData()` to async
-  - [ ] Convert `window.onload` to an async initialiser that awaits both loads before populating the UI
-- [ ] Replace `innerHTML` interpolation with safe DOM construction (`textContent` + `createElement`) wherever data values are rendered. The XSS surface is the data file (`inventory.json`), not the input field - interpolating `${item.name}`, `${item.id}`, `${whStock.warehouse}` into `innerHTML` is the actual vulnerability. Also remove the inline `onerror="handleImageError(this, '${item.id}')"` attributes and bind via `addEventListener` instead.
-- [ ] Remove all debug `console.log` statements from production code
-- [ ] Run lint and build, then exercise the app in the browser (Playwright MCP or manual) to confirm product lookup, warehouse stock display, and language switching all still work
+- [ ] Upgrade TypeScript to latest 5.x and update `tsconfig.json` target, enable strict
+- [ ] Replace synchronous requests with async (translations, inventory data, window onload and any others):
+- [ ] Replace innerHTML interpolation with safe DOM construction wherever data values are rendered. The XSS surface is the data file (`inventory.json`), not the input field - interpolating `${item.name}`, `${item.id}`, `${whStock.warehouse}` into `innerHTML` is the actual vulnerability.
+- [ ] Remove all debug console log statements from production code
+- [ ] Run lint and build, then exercise the app in the browse to confirm product lookup, warehouse stock display, and language switching all still work
 - [ ] Perform a critical self-review of your changes and fix any issues found
 - [ ] STOP and wait for human review
 
@@ -116,13 +113,13 @@ Do all the code work below before pausing to verify. Save lint, build and browse
 
 Do all the code work below before pausing to verify.
 
-- [ ] Define interfaces for `InventoryItem`, `WarehouseStock`, `Translations`, and key DOM element references
+- [ ] Define interfaces for inventory items, warehouse stock, translations, and key DOM element references
 - [ ] Replace all `any` types with the new interfaces and add explicit return and parameter types to every function
-- [ ] Enable `noImplicitAny` and `strictNullChecks` and resolve all resulting errors
+- [ ] Enable `noImplicitAny` and `strictNullChecks` and resolve all resulting warnings or errors
 - [ ] Extract global state (`currentLanguage`, `translations`, `inventoryData`) into a small `AppState` module
 - [ ] Split data loading into a data service module and DOM rendering into a view module
 - [ ] Wrap async work in try/catch and surface user-friendly error messages for network failures and missing products
-- [ ] Re-enable `@typescript-eslint/no-explicit-any` and `prefer-const` in `.eslintrc.json` and resolve any remaining violations
+- [ ] Re-enable `@typescript-eslint/no-explicit-any` and `prefer-const` and resolve any remaining violations
 - [ ] Verify the build, lint, and the existing test suite all pass
 - [ ] Perform a critical self-review of your changes and fix any issues found
 - [ ] STOP and wait for human review
