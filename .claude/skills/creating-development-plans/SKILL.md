@@ -77,7 +77,7 @@ Before finalising:
 
 ## Development Plan Structure
 
-Create a new file called `DEVELOPMENT_PLAN.md` with this structure:
+Create a new file called `docs/development-plan.md` with this structure:
 
 ```markdown
 # Development Plan for [PROJECT_NAME]
@@ -178,7 +178,7 @@ Adjust based on project risk tolerance:
 
 ## Final Steps
 
-1. Write the complete `DEVELOPMENT_PLAN.md` file
+1. Write the complete `docs/development-plan.md` file
 2. Apply deep thinking to review the plan thoroughly
 3. Make any necessary adjustments
 4. Present the plan to the user

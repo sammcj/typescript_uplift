@@ -19,7 +19,7 @@ Use ultrathink (think deeply) about your understanding of the user's requirement
 
 **Step 3: Create the Plan**
 
-Create a development plan (in `DEVELOPMENT_PLAN.md` unless specified otherwise) that:
+Create a development plan (in `docs/development-plan.md` unless specified otherwise) that:
 1. Concisely and clearly documents what needs to be done and why
 2. Breaks work into checklists within logical, reviewable phases
 3. Provides enough guidance without over-constraining implementation

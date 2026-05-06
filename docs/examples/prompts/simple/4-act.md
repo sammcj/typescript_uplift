@@ -1,5 +1,5 @@
-# Acting on a development plan
+# Acting on a Development Plan
 
-Read the DEVELOPMENT_PLAN.md to understand your goal today.
+Read the docs/development-plan.md to understand your goal today.
 
 Then carry out the tasks in full.

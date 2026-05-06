@@ -1,6 +1,6 @@
 # Development Plan Creation
 
-Create a new markdown file called `DEVELOPMENT_PLAN.md` capturing the findings, requirements and recommendations we've just discussed.
+Create a new markdown file called `docs/development-plan.md` capturing the findings, requirements and recommendations we've just discussed.
 
 It should be detailed enough that an engineer could pick it up and execute without further explanation. Keep the writing concise.
 

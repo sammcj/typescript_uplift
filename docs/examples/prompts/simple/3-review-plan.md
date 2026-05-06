@@ -2,7 +2,7 @@
 
 I'm planning to perform an uplift of the code quality in my project.
 
-I want you to review the DEVELOPMENT_PLAN.md document I've created.
+I want you to review the docs/development-plan.md document I've created.
 
 - Look for any errors, contradictory statements or misaligned tasks - but don't nitpick.
 - Value actionable items over specific code changes.

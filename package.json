@@ -9,7 +9,7 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint -c .eslintrc.json src/**/*.ts --no-fix",
     "dev": "tsc && cp src/index.html dist/ && cp src/modern-ui.css dist/ && cp not-backed.png dist/ && cp -r src/i18n dist/ && mkdir -p dist/data && cp src/data/inventory.json dist/data/ && cp -r inventory dist/ && concurrently \"tsc --watch\" \"browser-sync start --no-open --server dist --files 'dist/**/*'\"",
-    "reset": "git reset --hard HEAD && rm -rf DEVELOPMENT_PLAN.md DEV_PLAN.md"
+    "reset": "git reset --hard HEAD"
   },
   "keywords": [
     "typescript",
